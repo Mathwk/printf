@@ -13,7 +13,7 @@ int conv_spec(const char *format, int index, va_list ap)
 		{'c', pr_char}, {'s', pr_string}, {'%', pr_percent},
 		{'d', pr_int}, {'i', pr_int}, {'b', pr_binary},
 		{'u', pr_unsigned}, {'o', pr_octal}, {'x', pr_hexad},
-		{'X', pr_hexaD}, {NULL, NULL}
+		{'X', pr_hexaD}
 	};
 
 	for (i = index + 1; format[i] != '\0'; i++)
