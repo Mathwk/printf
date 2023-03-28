@@ -15,7 +15,8 @@ int conv_spec(const char *format, int index, va_list ap)
 		{'u', pr_unsigned}, {'o', pr_octal}, {'x', pr_hexad},
 		{'X', pr_hexaD}, {NULL, NULL},
 	};
-	if (format == NULL)
+
+	if (format[i] == NULL)
 		return (-1);
 
 	for (i = index + 1; format[i] != '\0'; i++)

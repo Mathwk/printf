@@ -8,7 +8,7 @@ int pr_int(va_list ap)
 {
 	int i, n;
 	int j = va_arg(ap, int);
-	char s[BUFF_SIZE];
+	char s[BUFF_SIZE - 2];
 
 	i = 0;
 	if (j < 0)
