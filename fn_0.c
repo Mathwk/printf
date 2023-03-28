@@ -8,8 +8,6 @@ int pr_char(va_list ap)
 {
 	char c = va_arg(ap, int);
 
-	if (c == NULL)
-		s = "(null)";
 	return (write(1, &c, 1));
 }
 /**
