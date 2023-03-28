@@ -8,6 +8,8 @@ int pr_char(va_list ap)
 {
 	char c = va_arg(ap, int);
 
+	if (c == NULL)
+		s = "(null)";
 	return (write(1, &c, 1));
 }
 /**
@@ -21,9 +23,7 @@ int pr_string(va_list ap)
 	char *s = va_arg(ap, char *);
 
 	if (s == NULL)
-	{
 		s = "(null)";
-	}
 	for (i = 0; s[i] != '\0';)
 		i++;
 	return (write(1, &s[0], i));
