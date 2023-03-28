@@ -16,9 +16,6 @@ int conv_spec(const char *format, int index, va_list ap)
 		{'X', pr_hexaD}, {NULL, NULL},
 	};
 
-	if (format[i] == NULL)
-		return (-1);
-
 	for (i = index + 1; format[i] != '\0'; i++)
 	{
 		for (j = 0; spec[j].sp != '\0'; j++)
