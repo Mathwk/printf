@@ -20,6 +20,10 @@ int pr_string(va_list ap)
 	int i;
 	char *s = va_arg(ap, char *);
 
+	if (s == '\0')
+	{
+		s = "(null)";
+	}
 	for (i = 0; s[i] != '\0';)
 		i++;
 	return (write(1, &s[0], i));
