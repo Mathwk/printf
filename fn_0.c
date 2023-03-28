@@ -20,7 +20,7 @@ int pr_string(va_list ap)
 	int i;
 	char *s = va_arg(ap, char *);
 
-	if (s == '\0')
+	if (s == NULL)
 	{
 		s = "(null)";
 	}
