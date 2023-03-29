@@ -31,9 +31,11 @@ int _printf(const char *format, ...)
 		else
 		{
 			print_str(str, p_index);
+			++index;
 			p_index = conv_spec(format, index, ap);
+			if (p_index == -1)
+				return (-1);
 			pr_counter += p_index;
-			index++;
 			p_index = 0;
 		}
 		index++;

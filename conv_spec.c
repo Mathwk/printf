@@ -8,7 +8,7 @@
  */
 int conv_spec(const char *format, int index, va_list ap)
 {
-	int i, j, n = 0;
+	int j, n = 0;
 	sp_t spec[] = {
 		{'c', pr_char}, {'s', pr_string}, {'%', pr_percent},
 		{'d', pr_int}, {'i', pr_int}, {'b', pr_binary},
@@ -16,22 +16,19 @@ int conv_spec(const char *format, int index, va_list ap)
 		{'X', pr_hexaD}, {'\0', NULL}
 	};
 
-	for (i = index + 1; format[i] != '\0'; i++)
+	for (j = 0; spec[j].sp != '\0'; j++)
 	{
-		for (j = 0; spec[j].sp != '\0'; j++)
-		{
-			if (format[i] == spec[j].sp)
-				return (spec[j].fn(ap));
-		}
+		if (format[index] == spec[j].sp)
+			return (spec[j].fn(ap));
 	}
 	if (spec[j].sp == '\0')
 	{
-		if (format[i] == '\0')
+		if (format[index] == '\0')
 			return (-1);
 		n += write(1, "%%", 1);
-		if (format[i - 1] == ' ')
-			return (write(1, " ", 1));
-		n += write(1, &format[i], 1);
+		if (format[index - 1] == ' ')
+			n += (write(1, " ", 1));
+		n += write(1, &format[index], 1);
 		return (n);
 	}
 	return (0);
