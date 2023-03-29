@@ -21,7 +21,7 @@ int pr_string(va_list ap)
 	char *s = va_arg(ap, char *);
 
 	if (s == NULL)
-		s = "(null)";
+		return (write(1, "(null)", 6));
 	for (i = 0; s[i] != '\0';)
 		i++;
 	return (write(1, &s[0], i));
