@@ -6,7 +6,7 @@
 #include <unistd.h>
 
 #define BUFF_SIZE 1024
-#define UNUSED(x) void(x)
+#define UNUSED(x) (void)(x)
 
 int print_str(char *str, int p_index);
 int _printf(const char *format, ...);

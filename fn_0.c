@@ -35,6 +35,6 @@ int pr_percent(va_list ap)
 {
 	char p = va_arg(ap, int);
 
-	UNUSED(ap);
+	UNUSED(p);
 	return (write(1, "%%", 1));
 }
