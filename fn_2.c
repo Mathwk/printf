@@ -10,6 +10,8 @@ int pr_unsigned(va_list ap)
 	unsigned int j = va_arg(ap, int), n;
 	char s[BUFF_SIZE];
 
+	if (j == 0)
+		return (write(1, "0", 1));
 	i = 0;
 	n = j;
 	while (n > 0)
@@ -37,6 +39,8 @@ int pr_octal(va_list ap)
 	unsigned int j = va_arg(ap, int), n;
 	char s[BUFF_SIZE];
 
+	if (j == 0)
+		return (write(1, "0", 1));
 	i = 0;
 	n = j;
 	while (n > 0)

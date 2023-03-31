@@ -10,6 +10,8 @@ int pr_hexad(va_list ap)
 	unsigned int j = va_arg(ap, int), n;
 	char s[BUFF_SIZE];
 
+	if (j == 0)
+		return (write(1, "0", 1));
 	n = j;
 	for (i = 0; n > 0; i++)
 		n /= 16;

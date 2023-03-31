@@ -10,6 +10,8 @@ int pr_int(va_list ap)
 	int j = va_arg(ap, int);
 	char s[BUFF_SIZE - 2];
 
+	if (j == 0)
+		return (write(1, "0", 1));
 	i = 0;
 	if (j < 0)
 	{
@@ -43,6 +45,8 @@ int pr_binary(va_list ap)
 	unsigned int j = va_arg(ap, int), n;
 	char s[BUFF_SIZE];
 
+	if (j == 0)
+		return (write(1, "0", 1));
 	i = 0;
 	n = j;
 	while (n > 0)
