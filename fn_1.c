@@ -6,8 +6,8 @@
  */
 int pr_int(va_list ap)
 {
-	int i, n;
-	int j = va_arg(ap, int);
+	long int i, n;
+	long int j = va_arg(ap, int);
 	char s[BUFF_SIZE - 2];
 
 	if (j == 0)
