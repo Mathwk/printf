@@ -32,8 +32,7 @@ int _printf(const char *format, ...)
 			++index;
 			if (format[index] == '%')
 			{
-				p_index = write(1, "%%", 1);
-				p_index = 0;
+				pr_counter += write(1, "%%", 1);
 				continue;
 			}
 			p_index = conv_spec(format, index, ap);
