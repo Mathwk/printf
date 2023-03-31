@@ -15,8 +15,7 @@ int pr_hexaD(va_list ap)
 	n = j;
 	for (i = 0; n > 0; i++)
 		n /= 16;
-	n = i - 1;
-	while (j > 0)
+	for (n = i - 1; j > 0; n--)
 	{
 		s[n] = j % 16 + '0';
 		if (j % 16 > 9)
@@ -44,7 +43,6 @@ int pr_hexaD(va_list ap)
 			}
 		}
 		j /= 16;
-		n--;
 	}
 	return (write(1, &s[0], i));
 }
