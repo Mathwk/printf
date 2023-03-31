@@ -6,16 +6,14 @@
  */
 int _printf(const char *format, ...)
 {
-	int index, pr_counter = 0;
-	int p_index = 0;
+	int index, pr_counter = 0, p_index = 0;
 	char str[BUFF_SIZE];
 	va_list ap;
 
 	if (format == NULL)
 		return (-1);
 	va_start(ap, format);
-	index = 0;
-	while (format && format[index])
+	for (index = 0; format && format[index]; index++)
 	{
 		if (format[index] != '%')
 		{
@@ -32,13 +30,18 @@ int _printf(const char *format, ...)
 		{
 			print_str(str, p_index);
 			++index;
+			if (format[index] == '%')
+			{
+				p_index = write(1, "%%", 1);
+				p_index = 0;
+				continue;
+			}
 			p_index = conv_spec(format, index, ap);
 			if (p_index == -1)
 				return (-1);
 			pr_counter += p_index;
 			p_index = 0;
 		}
-		index++;
 	}
 	print_str(str, p_index);
 	va_end(ap);
